@@ -6,6 +6,7 @@ use App\Http\Controllers\Propietario\BusinessItemController;
 use App\Http\Controllers\Public\BusinessController as PublicBusinessController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+use App\Http\Controllers\Admin\BusinessController as AdminBusinessController;
 use App\Http\Controllers\Admin\BusinessTypeController as AdminBusinessTypeController;
 
 use App\Http\Controllers\Propietario\DashboardController as PropietarioDashboard;
@@ -28,10 +29,10 @@ Route::middleware(['auth','admin'])
         Route::get('/dashboard', [AdminDashboard::class, 'index'])
             ->name('admin.dashboard');
             
-        Route::get('/businesses', [Admin\BusinessController::class, 'index'])
+        Route::get('/businesses', [AdminBusinessController::class, 'index'])
             ->name('business.index');
 
-        Route::patch('/businesses/{business}/toggle', [Admin\BusinessController::class, 'toggle'])
+        Route::patch('/businesses/{business}/toggle', [AdminBusinessController::class, 'toggle'])
             ->name('business.toggle');
         
         // Manage business types
