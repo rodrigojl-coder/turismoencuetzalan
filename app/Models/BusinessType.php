@@ -21,4 +21,9 @@ class BusinessType extends Model
             }
         });
     }
+
+    public function businesses()
+    {
+        return $this->hasMany(\App\Models\Business::class, 'business_type_id');
+    }
 }

@@ -23,6 +23,26 @@
     </x-nav-link>
 </div>
 
+    {{-- Dynamic grouped menu for business types (public-facing) --}}
+    <div class="hidden sm:flex sm:items-center sm:ms-6 sm:space-x-6">
+        @if(!empty($menuGroups))
+            @foreach($menuGroups as $group => $types)
+                <div class="relative">
+                    <button class="px-3 py-2 rounded hover:bg-gray-100 text-sm font-medium">{{ $group }}</button>
+                    <div class="absolute mt-2 bg-white border rounded shadow-md hidden group-hover:block min-w-[160px] z-50" style="display:none">
+                        <ul class="py-1">
+                            @foreach($types as $type)
+                                <li>
+                                    <a href="{{ route('negocios.category', $type->slug) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ $type->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+    </div>
+
             </div>
 
             <!-- Settings Dropdown -->
