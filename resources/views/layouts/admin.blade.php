@@ -19,7 +19,7 @@
                 📊 Dashboard
             </a>
 
-            <a href="#"
+            <a href="{{ route('business.index') }}"
                class="block px-3 py-2 rounded hover:bg-gray-700">
                 🏨 Negocios
             </a>
@@ -37,6 +37,11 @@
             <a href="#"
                class="block px-3 py-2 rounded hover:bg-gray-700">
                 💰 Comisiones
+            </a>
+            
+            <a href="{{ route('business-types.index') }}"
+               class="block px-3 py-2 rounded hover:bg-gray-700">
+                ⚙️ Tipos de negocio
             </a>
         </nav>
 
